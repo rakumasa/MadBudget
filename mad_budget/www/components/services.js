@@ -1,40 +1,43 @@
 angular.module('starter.services', [])
 
-.factory('Spendings', function() {
-  // Might use a resource here that returns a JSON array
+// .factory('spendingFactory', function($http) {
+//   // Might use a resource here that returns a JSON array
+.factory('spendingService', function($http) {
+
+
 
   // Some fake testing data
-  var spendings = [{
-    id: 0,
-    date: 'Ben Sparrow',
-    description: 'You on your way?',
-    amount: 'img/ben.png',
-    category: 'grocery'
-  }, {
-    id: 1,
-    date: 'Ben Sparrow',
-    description: 'You on your way?',
-    amount: 'img/ben.png',
-    category: 'grocery'
-  }, {
-    id: 2,
-    date: 'Ben Sparrow',
-    description: 'You on your way?',
-    amount: 'img/ben.png',
-    category: 'grocery'
-  }, {
-    id: 3,
-    date: 'Ben Sparrow',
-    description: 'You on your way?',
-    amount: 'img/ben.png',
-    category: 'grocery'
-  }, {
-    id: 4,
-    date: 'Ben Sparrow',
-    description: 'You on your way?',
-    amount: 'img/ben.png',
-    category: 'grocery'
-  }];
+  // var spendings = [{
+  //   id: 0,
+  //   date: 'Ben Sparrow',
+  //   description: 'You on your way?',
+  //   amount: 'img/ben.png',
+  //   category: 'grocery'
+  // }, {
+  //   id: 1,
+  //   date: 'Ben Sparrow',
+  //   description: 'You on your way?',
+  //   amount: 'img/ben.png',
+  //   category: 'grocery'
+  // }, {
+  //   id: 2,
+  //   date: 'Ben Sparrow',
+  //   description: 'You on your way?',
+  //   amount: 'img/ben.png',
+  //   category: 'grocery'
+  // }, {
+  //   id: 3,
+  //   date: 'Ben Sparrow',
+  //   description: 'You on your way?',
+  //   amount: 'img/ben.png',
+  //   category: 'grocery'
+  // }, {
+  //   id: 4,
+  //   date: 'Ben Sparrow',
+  //   description: 'You on your way?',
+  //   amount: 'img/ben.png',
+  //   category: 'grocery'
+  // }];
   // var chats = [{
   //   id: 0,
   //   name: 'Ben Sparrow',
@@ -60,11 +63,15 @@ angular.module('starter.services', [])
   //   name: 'Mike Harrington',
   //   lastText: 'This is wicked good ice cream.',
   //   face: 'img/mike.png'
-  // }];
+  // }
+// ];
 
   return {
     all: function() {
-      return chats;
+      return $http.get('http://localhost:8000/spendings');
+    },
+    getOne: function() {
+      return $http.get('http://localhost:8000/spendings');
     },
     remove: function(chat) {
       chats.splice(chats.indexOf(chat), 1);
