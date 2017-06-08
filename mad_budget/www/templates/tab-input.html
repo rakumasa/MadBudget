@@ -3,21 +3,34 @@
 
     <h1>I'm in input</h1>
 
-    <div class="list list-inset">
-        <label class="item item-input">
-          <input type="text" placeholder="Item">
-        </label>
-        <label class="item item-input">
-          <input type="text" placeholder="Amount">
-        </label>
-        <!-- Add drop down menu for category
-        <label class="item item-input">
-          <input type="text" placeholder="Category">
+    <form name="inputForm" ng-submit="addPost(post)">
+      <div class="list list-inset">
+        <!-- <label class="item item-input">
+          <span class="input-label">Date</span>
+          <input type="date">
         </label> -->
-        <button class="button button-small">
-          Submit
-        </button>
-    </div>
+        <label class="item item-input">
+          <span class="input-label">Date</span>
+          <input type="date" placeholder="date" id="date" name="date" ng-model="post.date">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="item" id="item" name="item" ng-model="post.item">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="amount" id="amount" name="amount" ng-model="post.amount">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="category" id="category" name="category" ng-model="post.category">
+        </label>
+          <!-- Add drop down menu for category
+          <label class="item item-input">
+            <input type="text" placeholder="Category">
+          </label> -->
+          <button type="submit" class="button button-small button-dark">
+            Add
+          </button>
+      </div>
+    </form>
 
     <!-- <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">

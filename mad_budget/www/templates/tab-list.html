@@ -4,7 +4,7 @@
     <h1>I'm in list</h1>
 
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="spending in spendings" type="item-text-wrap" href="/list/:id/edit">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="spending in something" type="item-text-wrap" href="#/list/{{spending.id}}/edit">
 
         <h2>{{spending.item}}</h2>
         <p>{{spending.date | date:'yyyy-MM-dd'}}</p>
@@ -17,7 +17,6 @@
       </ion-item>
     </ion-list>
 
-{{spendings}}
     <!-- <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
         <img ng-src="{{chat.face}}">

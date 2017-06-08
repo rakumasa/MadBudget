@@ -1,0 +1,71 @@
+<!-- The title of the ion-view will be shown on the navbar -->
+  <ion-view view-title="Edit">
+    <ion-content ng-controller="EditCtrl">
+      <!-- The content of the page -->
+      <h1>I'm in editlist.</h1>
+      
+      <form name="editForm" ng-submit="editPost()">
+          <div class="list list-inset">
+            <label class="item item-input">
+              <input type="text" placeholder="date" id="date" name="date" ng-model="spendingOne[0].date">
+            </label>
+            <label class="item item-input">
+              <input type="text" placeholder="item" id="item" name="item" ng-model="spendingOne[0].item">
+            </label>
+            <label class="item item-input">
+              <input type="text" placeholder="amount" id="amount" name="amount" ng-model="spendingOne[0].amount">
+            </label>
+            <label class="item item-input">
+              <input type="text" placeholder="category" id="category" name="category" ng-model="spendingOne[0].category">
+            </label>
+            <button type="submit" class="button button-small button-dark">
+              Update
+            </button>
+            <a href="#/tab/list"><button class="button button-small button-dark">Back to list</button></a>
+            <button class="button button-small button-assertive" ng-click="deletePost()">
+              Delete
+            </button>
+        </div>
+      </form>
+
+      <!-- <a href="#/tab/list">Back to list</a> -->
+    </ion-content>
+  </ion-view>
+
+
+
+
+
+<!-- <ion-view view-title="Edit">
+  <ion-content>
+
+    <h1>I'm in editlist. I can't talk to controller</h1> -->
+
+    <!-- <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="spending in spendings" type="item-text-wrap" href="/list/{{spending.id}}/edit">
+        {{spending}}
+        <h2>{{spending.item}}</h2>
+        <p>{{spending.date | date:'yyyy-MM-dd'}}</p>
+        <p>{{spending.amount}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list> -->
+
+    <!-- <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
+        <img ng-src="{{chat.face}}">
+        <h2>{{chat.name}}</h2>
+        <p>{{chat.lastText}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list> -->
+  <!-- </ion-content>
+</ion-view> -->

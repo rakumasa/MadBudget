@@ -4,7 +4,43 @@ angular.module('starter.services', [])
 //   // Might use a resource here that returns a JSON array
 .factory('spendingService', function($http) {
 
+  //Garabage
+  // var expenseList = [];
+  // if(expenseList.length === 0) {
+  //   expenseList = $http.get('http://localhost:8000/spendings')
+  // }
 
+  return {
+    //get all list
+    all: function() {
+      return $http.get('http://localhost:8000/spendings');
+    },
+    //get one list
+    one: function(id) {
+      return $http.get('http://localhost:8000/spendings/' + id);
+    },
+    //add one new list
+    add: function(post) {
+      return $http.post('http://localhost:8000/spendings', post);
+    },
+    update: function(id, editpost) {
+      return $http.put('http://localhost:8000/spendings/' + id, editpost);
+    },
+    remove: function(id) {
+      return $http.delete('http://localhost:8000/spendings/' + id);
+    },
+    get: function(chatId) {
+      for (var i = 0; i < chats.length; i++) {
+        if (chats[i].id === parseInt(chatId)) {
+          return chats[i];
+        }
+      }
+      return null;
+    },
+    thelist: function() {
+      return expenseList;
+    }
+  };
 
   // Some fake testing data
   // var spendings = [{
@@ -66,23 +102,4 @@ angular.module('starter.services', [])
   // }
 // ];
 
-  return {
-    all: function() {
-      return $http.get('http://localhost:8000/spendings');
-    },
-    getOne: function() {
-      return $http.get('http://localhost:8000/spendings');
-    },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
-    },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
-        }
-      }
-      return null;
-    }
-  };
 });
