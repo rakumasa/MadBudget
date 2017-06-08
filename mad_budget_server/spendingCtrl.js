@@ -5,7 +5,8 @@ module.exports = {
   getOne,
   addOne,
   changeOne,
-  deleteOne
+  deleteOne,
+  // getSum
 };
 
 function getAll(req,res){
@@ -64,3 +65,10 @@ function deleteOne(req,res) {
                       .then( spendings => res.send(spendings) );
                   })
 }
+
+
+// function getSum(req,res) {
+//   knex('spendings')
+//   .sum('amount')
+//     .then( spendings => res.send(spendings) );
+// }

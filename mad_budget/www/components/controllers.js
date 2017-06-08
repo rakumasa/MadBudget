@@ -1,6 +1,13 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope,spendingService) {
+
+  // spendingService.getsum().then(function(response){
+  //     console.log(response.data)
+  // })
+
+
+})
 
 .controller('InputCtrl', function($scope,$state,spendingService, $rootScope) {
 
@@ -36,7 +43,18 @@ angular.module('starter.controllers', [])
     $rootScope.something = response.data;
   })
 
-  console.log($rootScope);
+  $scope.getTotal = function(){
+    var total = 0;
+    for(var i = 0; i < $scope.something.length; i++){
+      total = total + $scope.something[i].amount;
+    }
+    return total;
+  }
+
+  // console.log($rootScope);
+  console.log("selection",$scope.selected);
+
+  $scope.selected = [];
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.

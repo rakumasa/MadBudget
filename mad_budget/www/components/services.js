@@ -29,13 +29,8 @@ angular.module('starter.services', [])
     remove: function(id) {
       return $http.delete('http://localhost:8000/spendings/' + id);
     },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
-        }
-      }
-      return null;
+    getsum: function() {
+      // return $http.get('http://localhost:8000/spendings/sum');
     },
     thelist: function() {
       return expenseList;
