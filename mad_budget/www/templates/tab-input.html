@@ -1,7 +1,5 @@
-<ion-view view-title="Input">
+<ion-view view-title="Input field">
   <ion-content>
-
-    <h1>I'm in input</h1>
 
     <form name="inputForm" ng-submit="addPost(post)">
       <div class="list list-inset">
@@ -13,10 +11,31 @@
           <span class="input-label">Date</span>
           <input type="date" placeholder="date" id="date" name="date" ng-model="post.date">
         </label>
-        <label class="item item-input">
+        <!-- <label class="item item-input item-select">
+          <div class="input-label">Month</div>
+          <input type="text" placeholder="month" id="month" name="month" ng-model="post.month">
+          <select>
+            <option value="Jan">Jan</option>
+            <option value="Feb">Feb</option>
+            <option value="Mar">Mar</option>
+            <option value="Apr">Apr</option>
+            <option value="May">May</option>
+            <option value="Jun" selected>Jun</option>
+            <option value="Jul">Jul</option>
+            <option value="Aug">Aug</option>
+            <option value="Sep">Sep</option>
+            <option value="Oct">Oct</option>
+            <option value="Nov">Nov</option>
+            <option value="Dec">Dec</option>
+          </select>
+        </label> -->
+
+        <!-- Month feature is for future
+        <label class="item item-input item-select">
           <span class="input-label">Month</span>
           <input type="text" placeholder="month" id="month" name="month" ng-model="post.month">
-        </label>
+        </label> -->
+
         <label class="item item-input">
           <input type="text" placeholder="item" id="item" name="item" ng-model="post.item">
         </label>
@@ -26,13 +45,17 @@
         <label class="item item-input">
           <input type="text" placeholder="category" id="category" name="category" ng-model="post.category">
         </label>
+        <label class="item item-input">
+          <input type="text" placeholder="memo(optional)" id="memo" name="memo" ng-model="post.memo">
+        </label>
           <!-- Add drop down menu for category
           <label class="item item-input">
             <input type="text" placeholder="Category">
           </label> -->
-          <button type="submit" class="button button-small button-dark">
+          <button type="submit" class="button button-medium button-positive">
             Add
           </button>
+          <a href="#/tab/list"><button class="button button-medium button-dark">Back to list</button></a>
       </div>
     </form>
 

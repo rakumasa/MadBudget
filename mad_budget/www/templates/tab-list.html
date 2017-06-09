@@ -1,10 +1,9 @@
-<ion-view view-title="List">
+<ion-view view-title="Mad budget!!">
   <ion-content>
 
-    <total-ctrl></total-ctrl>
-
-    <h1>Total: {{getTotal() | number: 2}}</h1>
-    <h1>Monthly total: {{monthly | number: 2}}</h1>
+    <h1>Total spending: ${{getTotal() | number: 2}}</h1>
+    <h1>Average spending/month:${{getTotal()/12 | number: 2}}</h1>
+    <h1>Monthly spending:${{monthly | number: 2}}</h1>
     <div class="card">
 
       <label class="item item-input item-select">
@@ -18,6 +17,13 @@
             <option value="Mar">Mar</option>
             <option value="Apr">Apr</option>
             <option value="May">May</option>
+            <option value="Jun">Jun</option>
+            <option value="Jul">Jul</option>
+            <option value="Aug">Aug</option>
+            <option value="Sep">Sep</option>
+            <option value="Oct">Oct</option>
+            <option value="Nov">Nov</option>
+            <option value="Dec">Dec</option>
           </select>
         </label>
 
@@ -45,12 +51,14 @@
     <!-- ng-repeat="spending in something | filter: selected" -->
 
 
+
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="spending in (filteredItems = (something | filter: selected))" type="item-text-wrap" href="#/list/{{spending.id}}/edit" ng-click="readArray(filteredItems)">
 
-        <h2>{{spending.item}}</h2>
-        <p>{{spending.month}}</p>
-        <p>{{spending.amount}}</p>
+        <h2>{{spending.item}} ({{spending.category}})</h2>
+        <p>{{spending.date | date: "yyyy-MM-dd" }}</p>
+        <!-- <p>{{spending.month}}</p> -->
+        <p>${{spending.amount}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
 
         <ion-option-button class="button-assertive" ng-click="remove(chat)">

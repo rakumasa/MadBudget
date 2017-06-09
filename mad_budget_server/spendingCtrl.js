@@ -26,10 +26,10 @@ function getOne(req,res) {
 function addOne(req,res) {
   knex('spendings').insert({
     date: req.body.date,
-    month: req.body.month,
     item: req.body.item,
     amount: req.body.amount,
-    category: req.body.category
+    category: req.body.category,
+    memo: req.body.memo
   })
   .then(() => {
     knex.select()
@@ -47,7 +47,8 @@ function changeOne(req,res) {
                     date: req.body.date,
                     item: editedItem,
                     amount: req.body.amount,
-                    category: req.body.category
+                    category: req.body.category,
+                    memo: req.body.memo
                   })
                   .where('id',req.params.id)
                   .then( () => {

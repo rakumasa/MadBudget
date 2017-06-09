@@ -2,8 +2,7 @@
   <ion-view view-title="Edit">
     <ion-content ng-controller="EditCtrl">
       <!-- The content of the page -->
-      <h1>I'm in editlist.</h1>
-      
+
       <form name="editForm" ng-submit="editPost()">
           <div class="list list-inset">
             <label class="item item-input">
@@ -18,11 +17,14 @@
             <label class="item item-input">
               <input type="text" placeholder="category" id="category" name="category" ng-model="spendingOne[0].category">
             </label>
-            <button type="submit" class="button button-small button-dark">
+            <label class="item item-input">
+              <input type="text" placeholder="memo" id="memo" name="memo" ng-model="spendingOne[0].memo">
+            </label>
+            <button type="submit" class="button button-medium button-dark">
               Update
             </button>
-            <a href="#/tab/list"><button class="button button-small button-dark">Back to list</button></a>
-            <button class="button button-small button-assertive" ng-click="deletePost()">
+            <a href="#/tab/list"><button class="button button-medium button-dark">Back to list</button></a>
+            <button class="button button-medium button-assertive" ng-click="deletePost()">
               Delete
             </button>
         </div>

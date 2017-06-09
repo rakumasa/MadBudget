@@ -18,9 +18,9 @@ angular.module('starter.controllers', [])
 
   //post new item
   $scope.addPost = function(post){
-
+    // post.month =
+    console.log(post);
     spendingService.add(post).then(function(response){
-      console.log($rootScope.something)
       //push new post to all data
       $rootScope.something.push(response.data[response.data.length-1])
       //Clear form
@@ -29,6 +29,7 @@ angular.module('starter.controllers', [])
       post.item = null;
       post.amount = null;
       post.category = null;
+      post.memo = null;
       //Move to list state
       $state.go('tab.list')
     })
@@ -37,6 +38,9 @@ angular.module('starter.controllers', [])
 })
 
 .controller('ListCtrl', function($scope,spendingService,$rootScope) {
+
+  //Scope for today's info
+  $scope.date_rdv = new Date();
 
   //get all list from database
   spendingService.all().then(function(response){
