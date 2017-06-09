@@ -20,10 +20,12 @@ angular.module('starter.controllers', [])
   $scope.addPost = function(post){
 
     spendingService.add(post).then(function(response){
+      console.log($rootScope.something)
       //push new post to all data
       $rootScope.something.push(response.data[response.data.length-1])
       //Clear form
       post.date = null;
+      post.month = null;
       post.item = null;
       post.amount = null;
       post.category = null;
@@ -41,6 +43,9 @@ angular.module('starter.controllers', [])
     $scope.spendings = response.data
     //create an array 'something' in $rootScope and send new post to it
     $rootScope.something = response.data;
+    // $scope.totalByMonth = response.data.reduce(function(acc, val) {
+    //   return acc + val.amount;
+    // }, 0);
   })
 
   $scope.getTotal = function(){
@@ -51,10 +56,27 @@ angular.module('starter.controllers', [])
     return total;
   }
 
-  // console.log($rootScope);
-  console.log("selection",$scope.selected);
+  $scope.selected = "";
 
-  $scope.selected = [];
+  $scope.readValue = function (some){
+    $scope.selected = some;
+
+    var getMonthArray = $rootScope.something.filter(function(obj){
+      return obj.month === some;
+    })
+
+    //grab all array for that month
+    $scope.monthly = getMonthAmount(getMonthArray)
+    //add all amount in montly array
+    function getMonthAmount(arr){
+      var total = 0;
+      for(var i=0; i<arr.length; i++){
+        total= total + arr[i].amount
+        }
+        return total;
+      }
+    // console.log(monthly)
+  }
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -125,6 +147,10 @@ angular.module('starter.controllers', [])
       $state.go('tab.list')
     })
   }
+
+})
+
+.controller('TotalCtrl', function($scope, $stateParams, Chats) {
 
 })
 

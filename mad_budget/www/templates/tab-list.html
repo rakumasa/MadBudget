@@ -1,26 +1,27 @@
 <ion-view view-title="List">
   <ion-content>
 
-    <h1>Total: {{getTotal()}}</h1>
+    <total-ctrl></total-ctrl>
 
-    <h1>I'm in list</h1>
-
-    <div class="list">
+    <h1>Total: {{getTotal() | number: 2}}</h1>
+    <h1>Monthly total: {{monthly | number: 2}}</h1>
+    <div class="card">
 
       <label class="item item-input item-select">
         <div class="input-label">
           Sort by
         </div>
-        <select ng-model="selected">
-          <option value="Jan">Jan</option>
-          <option value="Feb">Feb</option>
-          <option value="Mar">Mar</option>
-          <option value="Apr">Apr</option>
-          <option value="May">May</option>
-        </select>
-      </label>
+          <select ng-model="selected" ng-change="readValue(selected)">
+            <option value="">All</option>
+            <option value="Jan">Jan</option>
+            <option value="Feb">Feb</option>
+            <option value="Mar">Mar</option>
+            <option value="Apr">Apr</option>
+            <option value="May">May</option>
+          </select>
+        </label>
 
-    </div>
+        </div>
 
     <!-- <div class="form-inline">
       <label for="sort">  Sort by month</label>
@@ -40,9 +41,12 @@
       </select>
     </div> -->
 
+    <!-- (filteredItems = (something | filter: selected)) -->
+    <!-- ng-repeat="spending in something | filter: selected" -->
+
 
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="spending in something | orderBy: selected" type="item-text-wrap" href="#/list/{{spending.id}}/edit">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="spending in (filteredItems = (something | filter: selected))" type="item-text-wrap" href="#/list/{{spending.id}}/edit" ng-click="readArray(filteredItems)">
 
         <h2>{{spending.item}}</h2>
         <p>{{spending.month}}</p>

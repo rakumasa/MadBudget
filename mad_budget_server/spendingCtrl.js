@@ -26,6 +26,7 @@ function getOne(req,res) {
 function addOne(req,res) {
   knex('spendings').insert({
     date: req.body.date,
+    month: req.body.month,
     item: req.body.item,
     amount: req.body.amount,
     category: req.body.category
