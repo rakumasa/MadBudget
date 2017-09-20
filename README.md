@@ -7,7 +7,7 @@ You can see a preview of this app in action in the following video preview:
 https://www.youtube.com/watch?v=oNwvWP17kNY&t=1s
 
 [![Watch the video](images/Mad_budget.png)](https://www.youtube.com/watch?v=oNwvWP17kNY&t=1s)
-``
+
 **About the project**
 
 Mad budget app help you to review your spending habit, and people who want to control their spending. You can review below items through this app.
