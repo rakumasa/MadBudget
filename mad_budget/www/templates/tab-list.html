@@ -4,6 +4,7 @@
     <h1>Total spending: ${{getTotal() | number: 2}}</h1>
     <h1>Average spending/month:${{getTotal()/12 | number: 2}}</h1>
     <h1>Monthly spending:${{monthly | number: 2}}</h1>
+
     <div class="card">
 
       <label class="item item-input item-select">
@@ -56,9 +57,10 @@
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="spending in (filteredItems = (something | filter: selected))" type="item-text-wrap" href="#/list/{{spending.id}}/edit" ng-click="readArray(filteredItems)">
 
         <h2>{{spending.item}} ({{spending.category}})</h2>
-        <p>{{spending.date | date: "yyyy-MM-dd" }}</p>
+        <h3>{{spending.date | date: "yyyy-MM-dd" }}</h3>
+        <h3>${{spending.amount}}</h3>
         <!-- <p>{{spending.month}}</p> -->
-        <p>${{spending.amount}}</p>
+        <p>{{spending.memo}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
 
         <ion-option-button class="button-assertive" ng-click="remove(chat)">

@@ -39,6 +39,7 @@ function addOne(req,res) {
 }
 
 function changeOne(req,res) {
+  console.log(req.body)
   //check all req.body how do we get
   // console.log(req.body);
   //replace all " \ " in item to " ' "()
@@ -48,7 +49,7 @@ function changeOne(req,res) {
                     item: editedItem,
                     amount: req.body.amount,
                     category: req.body.category,
-                    memo: req.body.memo
+                    memo: req.body.memo,
                   })
                   .where('id',req.params.id)
                   .then( () => {

@@ -60,6 +60,7 @@ angular.module('starter.controllers', [])
     return total;
   }
 
+
   $scope.selected = "";
 
   $scope.readValue = function (some){
@@ -113,6 +114,7 @@ angular.module('starter.controllers', [])
     var dataId = $stateParams.id
     //object of all changed data
     var editPost = $scope.spendingOne
+    console.log(editPost);
      //update the information
     spendingService.update(dataId,editPost).then(function(response){
       var findIndex = getIndex($rootScope.something)
